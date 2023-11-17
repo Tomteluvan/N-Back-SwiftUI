@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFAudio
 
 
 // Our custom view modifier to track rotation and
@@ -33,6 +34,10 @@ struct ContentView: View {
     @EnvironmentObject var theViewModel : N_Back_SwiftUIVM
     @State private var orientation = UIDeviceOrientation.portrait
     
+    init() {
+        AVSpeechSynthesisVoice.speechVoices()
+    }
+    
     var body: some View {
         VStack() {
             Image(systemName: "globe")
@@ -49,7 +54,7 @@ struct ContentView: View {
             }
             .padding()
             Spacer()
-            ActionIconView()
+            ActionView()
             
         }
         .padding()
@@ -60,7 +65,7 @@ struct ContentView: View {
 
 
 
-struct ContentView_Previews:     {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group{
             ForEach(["iPhone SE (3rd generation)", "iPhone 14 Pro Max"], id: \.self) { deviceName in

@@ -13,7 +13,7 @@ struct N_Back_SwiftUIApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeScreenView()
                 .environmentObject(theViewModel)
         }
     }

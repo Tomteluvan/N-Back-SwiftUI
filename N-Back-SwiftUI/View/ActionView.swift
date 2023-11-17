@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct ActionIconView: View {
+struct ActionView: View {
     @EnvironmentObject var theViewModel : N_Back_SwiftUIVM
     var body: some View {
+        
         VStack(alignment: .center) {
-            Text("START GAME").font(.largeTitle)
+            Spacer()
             HStack(spacing: 30){
                 Button {
                     theViewModel.soundClick()
@@ -31,7 +32,7 @@ struct ActionIconView: View {
 
 struct ActionIconView_Previews: PreviewProvider {
     static var previews: some View {
-        ActionIconView()
+        ActionView()
             .environmentObject(N_Back_SwiftUIVM())
     }
 }
