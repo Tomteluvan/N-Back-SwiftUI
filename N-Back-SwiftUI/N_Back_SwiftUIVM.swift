@@ -204,7 +204,7 @@ class N_Back_SwiftUIVM : ObservableObject  {
     
     func startAnimation() {
         //theModel.resetNback()
-        //theModel.resetScore()
+        theModel.resetScore()
         getCurrentScore()
         let nBackArray = theModel.getNBackArray()
         positionIndex = -1
@@ -236,7 +236,7 @@ class N_Back_SwiftUIVM : ObservableObject  {
     
     func startSoundPlayBack() {
         //theModel.resetSoundNBack()
-        //theModel.resetScore()
+        theModel.resetScore()
         getCurrentScore()
         let nBackArray = theModel.getNBackSoundArray()
         soundIndex = -1 // this is bad but it works, otherwise i skip first
