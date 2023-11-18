@@ -116,10 +116,12 @@ class N_Back_SwiftUIVM : ObservableObject  {
         soundIndex = 0
         rectangleTimer?.invalidate()
         soundtimer?.invalidate()
-        theModel.resetNback()
-        theModel.resetSoundNBack()
         theModel.resetScore()
         getCurrentScore()
+        theModel.resetNback()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.theModel.resetSoundNBack()
+        }
     }
     
     func getRectangleIndex(with id: Int) -> Int? {
