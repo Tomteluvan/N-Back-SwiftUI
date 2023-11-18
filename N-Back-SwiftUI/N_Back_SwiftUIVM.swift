@@ -16,24 +16,30 @@ class N_Back_SwiftUIVM : ObservableObject  {
     
     @Published var highScore : Int
     @Published var currentScore : Int
+    @Published var soundImage : Int
+    @Published var positionImage : Int
     @Published var gridSize : Int
     @Published var nBackLevel : Int
     @Published var rectangles: [aRectangle] = []
-    @Published var currentIndex : Int
+    @Published var positionIndex : Int
+    @Published var soundIndex: Int
     @Published var canGuessPosition: Bool
     @Published var canGuessSound: Bool
     @Published var timeBetween: Double
     @Published var numberOfEvents: Int
     
     init(){
-        theModel = N_BackSwiftUIModel(count: 0, gridSize: 3, nBackLevel: 1, highScore: 0, numberOfEvents: 25)
+        theModel = N_BackSwiftUIModel(count: 0, gridSize: 5, nBackLevel: 1, highScore: 0, numberOfEvents: 25)
         currentScore = theModel.getCount()
         highScore = theModel.getHighScore()
         gridSize = theModel.getGridSize()
         nBackLevel = theModel.getNBackLevel()
         numberOfEvents = theModel.getNumberOfEvents()
+        positionImage = 1
+        soundImage = 2
         timeBetween = 2
-        currentIndex = 0
+        soundIndex = 0
+        positionIndex = 0
         canGuessPosition = false
         canGuessSound = false
         rectangles = initRectangles()
@@ -90,14 +96,30 @@ class N_Back_SwiftUIVM : ObservableObject  {
         nBackLevel = theModel.getNBackLevel()
     }
     
-    
     func soundClick(){
         let theString: String = theModel.getString()
         speech(aString: theString)
     }
     
-    func imageClick(){
+    func resetPosition(){ // best to reset both i think
         theModel.resetNback()
+        theModel.resetScore()
+    }
+    
+    func resetSound(){ // best to reset both i think
+        theModel.resetSoundNBack()
+        theModel.resetScore()
+    }
+    
+    func resetBoth(){
+        positionIndex = 0
+        soundIndex = 0
+        rectangleTimer?.invalidate()
+        soundtimer?.invalidate()
+        theModel.resetNback()
+        theModel.resetSoundNBack()
+        theModel.resetScore()
+        getCurrentScore()
     }
     
     func getRectangleIndex(with id: Int) -> Int? {
@@ -136,16 +158,17 @@ class N_Back_SwiftUIVM : ObservableObject  {
     }
     
     func tryPosition(){
-        print("nbacklevel is: \(nBackLevel)")
         let nBackArray = theModel.getNBackArray()
-        if canGuessPosition == true {
-            if self.currentIndex - nBackLevel > 0 && nBackArray[self.currentIndex - nBackLevel] == nBackArray[self.currentIndex] { //crashes at the end!
+        if canGuessPosition == true && positionIndex < nBackArray.count {
+            if self.positionIndex - nBackLevel > 0 && nBackArray[self.positionIndex - nBackLevel] == nBackArray[self.positionIndex] { //crashes at the end!
                 print("correct guess")
+                positionImage = 3
                 theModel.addScore()
                 getCurrentScore()
                 canGuessPosition = false
             } else {
                 print("wrong guess")
+                positionImage = 4
                 canGuessPosition = false
             }
         } else {
@@ -156,14 +179,16 @@ class N_Back_SwiftUIVM : ObservableObject  {
     
     func trySound(){
         let nBackSoundArray = theModel.getNBackSoundArray()
-        if canGuessSound == true {
-            if self.currentIndex - nBackLevel > 0 && nBackSoundArray[self.currentIndex - nBackLevel] == nBackSoundArray[self.currentIndex] {
+        if canGuessSound == true && soundIndex < nBackSoundArray.count {
+            if self.soundIndex - nBackLevel > 0 && nBackSoundArray[self.soundIndex - nBackLevel] == nBackSoundArray[self.soundIndex] {
                 print("correct sound guess")
+                soundImage = 3
                 theModel.addScore()
                 getCurrentScore()
                 canGuessSound = false
             } else {
                 print("wrong sound guess")
+                soundImage = 4
                 canGuessSound = false
             }
         } else {
@@ -176,24 +201,25 @@ class N_Back_SwiftUIVM : ObservableObject  {
     }
     
     func startAnimation() {
-        theModel.resetNback()
-        theModel.resetScore()
+        //theModel.resetNback()
+        //theModel.resetScore()
         getCurrentScore()
         let nBackArray = theModel.getNBackArray()
-        currentIndex = 0
+        positionIndex = 0
         
         rectangleTimer?.invalidate() // need to create instance of timer to be able to invalidate it if its running to reset
         
         rectangleTimer = Timer.scheduledTimer(withTimeInterval: timeBetween, repeats: true) { timer in
-            if self.currentIndex < nBackArray.count {
-                let value = nBackArray[self.currentIndex]
+            if self.positionIndex < nBackArray.count {
+                let value = nBackArray[self.positionIndex]
                 self.rectangleToActive(id: value)
                 self.canGuessPosition = true
                 
                 // Schedule the rectangleToNotActive after another second
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.rectangleNotActive(id: value)
-                    self.currentIndex += 1
+                    self.positionIndex += 1
+                    self.positionImage = 1
                 }
                 
             } else {
@@ -204,24 +230,24 @@ class N_Back_SwiftUIVM : ObservableObject  {
     }
     
     func startSoundPlayBack() {
-        theModel.resetSoundNBack()
-        theModel.resetScore()
+        //theModel.resetSoundNBack()
+        //theModel.resetScore()
         getCurrentScore()
         let nBackArray = theModel.getNBackSoundArray()
-        currentIndex = 0
+        soundIndex = 0
         
         soundtimer?.invalidate()
         
         soundtimer = Timer.scheduledTimer(withTimeInterval: timeBetween, repeats: true) { timer in
-            if self.currentIndex < nBackArray.count {
-                let value = nBackArray[self.currentIndex]
+            if self.soundIndex < nBackArray.count {
+                let value = nBackArray[self.soundIndex]
                 self.speech(aString: value)
-                print("Sound value: \(value)")
                 self.canGuessSound = true
                 
                 // Schedule the rectangleToNotActive after another second
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.currentIndex += 1
+                    self.soundIndex += 1
+                    self.soundImage = 2
                 }
                 
             } else {
@@ -237,6 +263,7 @@ class N_Back_SwiftUIVM : ObservableObject  {
     }
     
     func killTimer() {
+        rectangleTimer?.invalidate()
         soundtimer?.invalidate()
     }
     

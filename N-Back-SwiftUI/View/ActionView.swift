@@ -12,21 +12,21 @@ struct ActionView: View {
     var body: some View {
         
         VStack(alignment: .center) {
-            Spacer()
             HStack(spacing: 30){
                 Button {
-                    theViewModel.soundClick()
+                    theViewModel.trySound()
                 } label: {
-                    SoundIconView()
+                    SoundOrPositionIcon(image: theViewModel.soundImage)
                 }
                 Button {
-                    theViewModel.imageClick()
+                    theViewModel.tryPosition()
                 } label: {
-                    ImageIconView()
+                    SoundOrPositionIcon(image: theViewModel.positionImage)
                 }
             }
             
         }
+        .padding()
     }
 }
 

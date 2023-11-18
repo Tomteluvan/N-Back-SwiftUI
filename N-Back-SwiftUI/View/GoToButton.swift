@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GoToButton: View {
+struct GoToButton: View { // wow bad name but it does two things.. should be changed
     let labelText: String
     
     init(labelText: String) {

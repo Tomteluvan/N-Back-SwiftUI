@@ -10,9 +10,9 @@ import SwiftUI
 struct ImageIconView: View {
     var body: some View {
         HStack {
-            Image(systemName: "eye")
+            Image(systemName: "square.fill")
                 .imageScale(.large)
-            Text("Image")
+            Text("Position")
         }
         .padding()
        

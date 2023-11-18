@@ -10,30 +10,8 @@ import SwiftUI
 struct SoundGameView: View {
     @EnvironmentObject var theViewModel : N_Back_SwiftUIVM
     var body: some View {
-        VStack {
-            Text("current score: \(theViewModel.currentScore)")
-            Text("current highscore: \(theViewModel.highScore)")
-            Text("Event: \(theViewModel.currentIndex) / \(theViewModel.numberOfEvents)")
-            Spacer()
+        VStack { //uhm do i need this class
             
-            Button() {
-                theViewModel.trySound()
-            } label: {
-                Text("YEAH SAME SOUND, PRESS PRESS")
-            }
-            Spacer()
-            
-            Button() {
-                theViewModel.startSoundPlayBack()
-            } label: {
-                Text("Start")
-            }
-            
-            Button() {
-                theViewModel.killTimer()
-            } label: {
-                Text("STOP")
-            }
         }
     }
 }

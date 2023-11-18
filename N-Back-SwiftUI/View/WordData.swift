@@ -9,10 +9,10 @@ import Foundation
 
 struct WordData {
     static let words: [String] = [
-        "Tree", "Sun", "Book", "Chair", "River",
-        "Moon", "Apple", "Cloud", "Car", "Fish",
-        "Hat", "House", "Flower", "Smile", "Cake",
-        "Star", "Bird", "Key", "Song", "Shoe",
-        "Ocean", "Clock", "Bridge", "Ball", "Road","Dog"
+        "X", "P", "Q", "K", "D",
+        "R", "M", "F", "G", "V",
+        "Z", "W", "H", "U", "A",
+        "S", "C", "J", "N", "L",
+        "O", "B", "Y", "I", "T","Z"
     ]
 }

@@ -12,13 +12,7 @@ struct SoundAndPositionView: View {
     var body: some View {
         VStack {
             GridView()
-            SoundGameView()
-            
-            Button() {
-                theViewModel.startBothGames()
-            } label: {
-                Text("START BOTH GAMES")
-            }
+            SoundGameView() // i mean... this is empty in terms of visual stuff
         }
     }
 }

@@ -12,11 +12,12 @@
 		964C696A2B04D11700CD457E /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C69692B04D11700CD457E /* HomeScreenView.swift */; };
 		964C696C2B0502CD00CD457E /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C696B2B0502CD00CD457E /* GameView.swift */; };
 		964C696E2B0503AE00CD457E /* GoToButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C696D2B0503AE00CD457E /* GoToButton.swift */; };
-		964C69702B063A6000CD457E /* ActionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C696F2B063A6000CD457E /* ActionIcon.swift */; };
 		964C69722B06C5B200CD457E /* SoundOrPositionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C69712B06C5B200CD457E /* SoundOrPositionIcon.swift */; };
 		964C69792B079E1F00CD457E /* SoundGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C69782B079E1F00CD457E /* SoundGameView.swift */; };
 		964C697B2B079F7100CD457E /* WordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C697A2B079F7100CD457E /* WordData.swift */; };
 		964C697D2B07AFCC00CD457E /* SoundAndPositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C697C2B07AFCC00CD457E /* SoundAndPositionView.swift */; };
+		964C697F2B08EB2E00CD457E /* GameInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C697E2B08EB2E00CD457E /* GameInfoView.swift */; };
+		964C69812B08F8B300CD457E /* StartIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C69802B08F8B300CD457E /* StartIconView.swift */; };
 		EBA7C6D42ACB0C1800585AF6 /* nback.c in Sources */ = {isa = PBXBuildFile; fileRef = EBA7C6D32ACB0C1800585AF6 /* nback.c */; };
 		EBA7C6DC2ACC0CD300585AF6 /* SoundIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7C6DB2ACC0CD300585AF6 /* SoundIconView.swift */; };
 		EBA7C6DE2ACC0EB700585AF6 /* ImageIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7C6DD2ACC0EB700585AF6 /* ImageIconView.swift */; };
@@ -35,11 +36,12 @@
 		964C69692B04D11700CD457E /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		964C696B2B0502CD00CD457E /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		964C696D2B0503AE00CD457E /* GoToButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToButton.swift; sourceTree = "<group>"; };
-		964C696F2B063A6000CD457E /* ActionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionIcon.swift; sourceTree = "<group>"; };
 		964C69712B06C5B200CD457E /* SoundOrPositionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundOrPositionIcon.swift; sourceTree = "<group>"; };
 		964C69782B079E1F00CD457E /* SoundGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundGameView.swift; sourceTree = "<group>"; };
 		964C697A2B079F7100CD457E /* WordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordData.swift; sourceTree = "<group>"; };
 		964C697C2B07AFCC00CD457E /* SoundAndPositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundAndPositionView.swift; sourceTree = "<group>"; };
+		964C697E2B08EB2E00CD457E /* GameInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoView.swift; sourceTree = "<group>"; };
+		964C69802B08F8B300CD457E /* StartIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartIconView.swift; sourceTree = "<group>"; };
 		EBA7C6D12ACB0C0C00585AF6 /* nback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nback.h; sourceTree = "<group>"; };
 		EBA7C6D22ACB0C1800585AF6 /* N-Back-SwiftUI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "N-Back-SwiftUI-Bridging-Header.h"; sourceTree = "<group>"; };
 		EBA7C6D32ACB0C1800585AF6 /* nback.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = nback.c; sourceTree = "<group>"; };
@@ -126,11 +128,12 @@
 				964C69692B04D11700CD457E /* HomeScreenView.swift */,
 				964C696B2B0502CD00CD457E /* GameView.swift */,
 				964C696D2B0503AE00CD457E /* GoToButton.swift */,
-				964C696F2B063A6000CD457E /* ActionIcon.swift */,
 				964C69712B06C5B200CD457E /* SoundOrPositionIcon.swift */,
 				964C69782B079E1F00CD457E /* SoundGameView.swift */,
 				964C697A2B079F7100CD457E /* WordData.swift */,
 				964C697C2B07AFCC00CD457E /* SoundAndPositionView.swift */,
+				964C697E2B08EB2E00CD457E /* GameInfoView.swift */,
+				964C69802B08F8B300CD457E /* StartIconView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,7 +213,7 @@
 				EBA7C6DE2ACC0EB700585AF6 /* ImageIconView.swift in Sources */,
 				964C69722B06C5B200CD457E /* SoundOrPositionIcon.swift in Sources */,
 				964C696E2B0503AE00CD457E /* GoToButton.swift in Sources */,
-				964C69702B063A6000CD457E /* ActionIcon.swift in Sources */,
+				964C69812B08F8B300CD457E /* StartIconView.swift in Sources */,
 				964C697B2B079F7100CD457E /* WordData.swift in Sources */,
 				964C69662B04CF3600CD457E /* RectangleIcon.swift in Sources */,
 				EBA7C6DC2ACC0CD300585AF6 /* SoundIconView.swift in Sources */,
@@ -222,6 +225,7 @@
 				964C69792B079E1F00CD457E /* SoundGameView.swift in Sources */,
 				964C69682B04CFF100CD457E /* GridView.swift in Sources */,
 				964C696C2B0502CD00CD457E /* GameView.swift in Sources */,
+				964C697F2B08EB2E00CD457E /* GameInfoView.swift in Sources */,
 				EBA7C6E02ACC0F2700585AF6 /* ActionView.swift in Sources */,
 				964C697D2B07AFCC00CD457E /* SoundAndPositionView.swift in Sources */,
 			);

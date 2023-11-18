@@ -104,13 +104,14 @@ struct N_BackSwiftUIModel {
         let amountOfNumbers = Int32(gridSize*gridSize) //amount of tiles and thus combinations, maybe should save as globally accessable?
         let nBack = Int32(nBackLevel)
         let events = Int32(numberOfEvents)
-        let Nback = create(events+1, amountOfNumbers, 20, nBack)
+        let Nback = create(events, amountOfNumbers, 20, nBack)
         count = 0 // ughhhh highscore idk how to do it
         
-        for i in 1...events {
+        for i in 0...events-1 {
             let test:Int32 = Int32(i)
             let currentNumber = Int(getIndexOf(Nback, test))
             nBackSoundArray.append(WordData.words[currentNumber])
+            print("Value sound: \(getIndexOf(Nback, test))")
         }
     }
     
@@ -120,15 +121,15 @@ struct N_BackSwiftUIModel {
         let amountOfNumbers = Int32(gridSize*gridSize) //amount of tiles and thus combinations
         let nBack = Int32(nBackLevel)
         let events = Int32(numberOfEvents)
-        let Nback = create(events+1, amountOfNumbers, 20, nBack)
+        let Nback = create(events, amountOfNumbers, 20, nBack)
         count = 0 // i think i need to reset this here
         
         
-        for i in 1...events {
+        for i in 0...events-1 {
             let test:Int32 = Int32(i)
             let currentNumber = Int(getIndexOf(Nback, test))
             nBackArray.append(currentNumber)
-            print("aValue: \(getIndexOf(Nback, test))")
+            print("aValue rectangle: \(getIndexOf(Nback, test))")
         }
         
     }

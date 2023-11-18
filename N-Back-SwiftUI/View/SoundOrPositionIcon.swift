@@ -15,53 +15,37 @@ struct SoundOrPositionIcon: View {
     private let redBackground : Color = Color(red: 255/255, green: 125/255, blue: 125/255)
     
     var body: some View {
-        Button(action: {
-            start = true
-            withAnimation(Animation.spring(response: 0.2, dampingFraction: 0.2, blendDuration: 0.2)) {
-                
-                start = false
-            }
-        }) {
-            ZStack {
-                VStack {
-                    if(image == 1) {
-                        Image(systemName: "square.fill")
-                            .font(Font.system(size: 100))
-                            .padding()
-                            .offset(x: start ? 30 : 0)
-                            .background(blueBackground)
-                            .foregroundColor(Color.blue)
-                        Text("Position")
-                            .foregroundStyle(.black)
-                    } else if image == 2 {
-                        Image(systemName: "checkmark.circle.fill")
-                            .font(Font.system(size: 100))
-                            .padding()
-                            .offset(x: start ? 30 : 0)
-                            .frame(width: .infinity, height: .infinity)
-                            .background(greenBackground)
-                            .foregroundColor(Color.green)
-                        Text("Correct!")
-                            .foregroundStyle(.black)
-                    } else if image == 3 {
-                        Image(systemName: "music.note")
-                            .font(Font.system(size: 50))
-                            .padding()
-                            .offset(x: start ? 30 : 0)
-                            .background(blueBackground)
-                            .foregroundColor(Color.blue)
-                        Text("Sound")
-                            .foregroundStyle(.black)
-                    } else {
-                        Image(systemName: "xmark.circle.fill")
-                            .font(Font.system(size: 50))
-                            .padding()
-                            .offset(x: start ? 30 : 0)
-                            .background(redBackground)
-                            .foregroundColor(Color.red)
-                        Text("Wrong!")
-                            .foregroundStyle(.black)
-                    }
+        ZStack {
+            VStack {
+                if(image == 1) {
+                    Image(systemName: "square.fill")
+                        .font(Font.system(size: 50))
+                        .padding()
+                        .offset(x: start ? 30 : 0)
+                        .background(blueBackground)
+                        .foregroundColor(Color.blue)
+                } else if image == 2 {
+                    Image(systemName: "music.note")
+                        .font(Font.system(size: 50))
+                        .padding()
+                        .offset(x: start ? 30 : 0)
+                        .background(blueBackground)
+                        .foregroundColor(Color.blue)
+                } else if image == 3 {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(Font.system(size: 50))
+                        .padding()
+                        .offset(x: start ? 30 : 0)
+                        .frame(width: .infinity, height: .infinity)
+                        .background(greenBackground)
+                        .foregroundColor(Color.green)
+                } else {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(Font.system(size: 50))
+                        .padding()
+                        .offset(x: start ? 30 : 0)
+                        .background(redBackground)
+                        .foregroundColor(Color.red)
                 }
             }
         }
@@ -69,5 +53,5 @@ struct SoundOrPositionIcon: View {
 }
 
 #Preview {
-    SoundOrPositionIcon(image: 2)
+    SoundOrPositionIcon(image: 3)
 }

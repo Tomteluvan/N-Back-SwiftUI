@@ -14,17 +14,18 @@ struct RectangleIcon: View {
     var id : Int
     
     var body: some View {
-        if(active == 0) {
-            Rectangle()
-                .fill(Color.gray)
-                .frame(width: 75, height: 75)
-                .cornerRadius(10)
-        } else if(active == 1) {
-            Rectangle()
-                .fill(Color.blue)
-                .frame(width: 75, height: 75)
-                .cornerRadius(10)
+        VStack{
+            if(active == 0) {
+                Rectangle()
+                    .fill(Color.gray)
+                    .cornerRadius(10)
+            } else if(active == 1) {
+                Rectangle()
+                    .fill(Color.blue)
+                    .cornerRadius(10)
+            }
         }
+        .padding(1)
     }
 }
 

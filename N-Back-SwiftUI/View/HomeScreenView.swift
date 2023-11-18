@@ -13,38 +13,56 @@ struct HomeScreenView: View {
     @EnvironmentObject var theViewModel : N_Back_SwiftUIVM
     var body: some View {
         NavigationStack{
-            VStack {
-                Button {
-                    theViewModel.changeGridSize()
-                } label : {
-                    GoToButton(labelText: "Grid size: \(theViewModel.getGridSize())")
-                }
-                
-                Button {
-                    theViewModel.changeNBackLevel()
-                } label: {
-                    GoToButton(labelText: "N-Back: \(theViewModel.getNBacklevel())")
-                }
-                
-                Button {
-                    theViewModel.updateTimeBetween()
-                } label: {
-                    GoToButton(labelText: "Time between events: \(theViewModel.getRealTimeBetween())s")
-                }
-                
-                Button {
-                    theViewModel.updateNumberOfEvents()
-                } label: {
-                    GoToButton(labelText: "Number of events: \(theViewModel.numberOfEvents)")
-                }
-                
-                NavigationLink( destination: GameView()) {
-                    GoToButton(labelText: "Play")
-                }
-                NavigationLink( destination: SoundGameView()) {
-                    GoToButton(labelText: "play but with sound")
+            ZStack {
+                Color(red: 134/255, green: 185/255, blue: 237/255).edgesIgnoringSafeArea(.all)
+                VStack {
+                    Text("Click buttons to change values").font(.title).foregroundStyle(Color.white)
+                    Button {
+                        theViewModel.changeGridSize()
+                    } label : {
+                        GoToButton(labelText: "Positions/Sounds amount: \(theViewModel.getGridSize()*theViewModel.getGridSize())")
+                    }
+                    
+                    Button {
+                        theViewModel.changeNBackLevel()
+                    } label: {
+                        GoToButton(labelText: "N-Back: \(theViewModel.getNBacklevel())")
+                    }
+                    
+                    Button {
+                        theViewModel.updateTimeBetween()
+                    } label: {
+                        GoToButton(labelText: "Time between events: \(theViewModel.getRealTimeBetween())s")
+                    }
+                    
+                    Button {
+                        theViewModel.updateNumberOfEvents()
+                    } label: {
+                        GoToButton(labelText: "Number of events: \(theViewModel.numberOfEvents)")
+                    }
+                    HStack {
+                        NavigationLink( destination: GameView(gameType: "Position")
+                            .onAppear {
+                                theViewModel.resetBoth()
+                            }) {
+                            GoToButton(labelText: "Play Position")
+                        }
+                        NavigationLink( destination: GameView(gameType: "Both")
+                            .onAppear {
+                                theViewModel.resetBoth()
+                            }) {
+                            GoToButton(labelText: "Play Both")
+                        }
+                        NavigationLink( destination: GameView(gameType: "Sound")
+                            .onAppear {
+                                theViewModel.resetBoth()
+                            }) {
+                            GoToButton(labelText: "Play Sound")
+                        }
+                    }
                 }
             }
+            
         }
     }
 }

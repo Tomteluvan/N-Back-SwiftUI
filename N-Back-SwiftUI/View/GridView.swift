@@ -12,9 +12,6 @@ struct GridView: View {
     
     var body: some View {
         VStack {
-            Text("current score: \(theViewModel.currentScore)")
-            Text("current highscore: \(theViewModel.highScore)")
-            Text("Event: \(theViewModel.currentIndex) / \(theViewModel.numberOfEvents)")
             ForEach(0..<theViewModel.gridSize) { rowIndex in
                 HStack {
                     ForEach(0..<theViewModel.gridSize) { columnIndex in
@@ -24,19 +21,8 @@ struct GridView: View {
                     }
                 }
             }
-            Button(){
-                theViewModel.tryPosition()
-            } label: {
-                Text("YES IMAGE CORRECT PRESS PRESS")
-            }
-            Button(action: {
-                theViewModel.startAnimation()
-            }) {
-                Text("Start")
-            }
         }
     }
-    
 }
 
 struct GridView_Preview: PreviewProvider {
