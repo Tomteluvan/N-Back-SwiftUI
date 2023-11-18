@@ -28,9 +28,9 @@ struct GameInfoView: View {
             Text("N = \(theViewModel.nBackLevel)")
                 .padding()
             if soundOrPositionOrBoth == "Position" {
-                Text("Event \(theViewModel.positionIndex) / \(theViewModel.numberOfEvents)")
+                Text("Event \(theViewModel.positionIndex+1) / \(theViewModel.numberOfEvents)")
             } else if soundOrPositionOrBoth == "Sound" {
-                Text("Event \(theViewModel.soundIndex) / \(theViewModel.numberOfEvents)")
+                Text("Event \(theViewModel.soundIndex+1) / \(theViewModel.numberOfEvents)")
             }
         }
         .padding()

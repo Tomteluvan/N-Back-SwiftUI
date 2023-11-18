@@ -207,21 +207,24 @@ class N_Back_SwiftUIVM : ObservableObject  {
         //theModel.resetScore()
         getCurrentScore()
         let nBackArray = theModel.getNBackArray()
-        positionIndex = 0
+        positionIndex = -1
         
         rectangleTimer?.invalidate() // need to create instance of timer to be able to invalidate it if its running to reset
         
         rectangleTimer = Timer.scheduledTimer(withTimeInterval: timeBetween, repeats: true) { timer in
-            if self.positionIndex < nBackArray.count {
+            if self.positionIndex < nBackArray.count - 1 {
+                self.positionIndex += 1
+                self.positionImage = 1
                 let value = nBackArray[self.positionIndex]
                 self.rectangleToActive(id: value)
                 self.canGuessPosition = true
+
+                
                 
                 // Schedule the rectangleToNotActive after another second
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.rectangleNotActive(id: value)
-                    self.positionIndex += 1
-                    self.positionImage = 1
+
                 }
                 
             } else {
@@ -236,20 +239,21 @@ class N_Back_SwiftUIVM : ObservableObject  {
         //theModel.resetScore()
         getCurrentScore()
         let nBackArray = theModel.getNBackSoundArray()
-        soundIndex = 0
+        soundIndex = -1 // this is bad but it works, otherwise i skip first
         
         soundtimer?.invalidate()
         
         soundtimer = Timer.scheduledTimer(withTimeInterval: timeBetween, repeats: true) { timer in
-            if self.soundIndex < nBackArray.count {
+            if self.soundIndex < nBackArray.count - 1 {
+                self.soundIndex += 1
+                self.soundImage = 2
                 let value = nBackArray[self.soundIndex]
                 self.speech(aString: value)
                 self.canGuessSound = true
                 
                 // Schedule the rectangleToNotActive after another second
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    self.soundIndex += 1
-                    self.soundImage = 2
+ 
                 }
                 
             } else {
