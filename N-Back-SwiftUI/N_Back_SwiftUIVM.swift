@@ -119,7 +119,7 @@ class N_Back_SwiftUIVM : ObservableObject  {
         theModel.resetScore()
         getCurrentScore()
         theModel.resetNback()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.theModel.resetSoundNBack()
         }
     }
