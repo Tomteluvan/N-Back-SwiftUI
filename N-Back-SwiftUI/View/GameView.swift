@@ -23,7 +23,7 @@ struct GameView: View {
                 }
             }
         }
-        .onAppear {
+        .onAppear { //this is from stackoverflow
             // Subscribe to orientation changes
             NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
                 // Redraw the view when the orientation changes
@@ -61,7 +61,11 @@ struct GameView: View {
             Spacer()
         }
         .padding()
+        .onDisappear {
+            theViewModel.killTimer()
+        }
     }
+    
     
     func landscapeView() -> some View {
         HStack {
@@ -94,7 +98,9 @@ struct GameView: View {
             }
             .padding()
         }
-        
+        .onDisappear {
+            theViewModel.killTimer()
+        }
     }
 }
 
