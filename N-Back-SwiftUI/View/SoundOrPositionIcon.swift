@@ -22,29 +22,24 @@ struct SoundOrPositionIcon: View {
                         .font(Font.system(size: 50))
                         .padding()
                         .offset(x: start ? 30 : 0)
-                        .background(blueBackground)
                         .foregroundColor(Color.blue)
                 } else if image == 2 {
                     Image(systemName: "music.note")
                         .font(Font.system(size: 50))
                         .padding()
                         .offset(x: start ? 30 : 0)
-                        .background(blueBackground)
                         .foregroundColor(Color.blue)
                 } else if image == 3 {
                     Image(systemName: "checkmark.circle.fill")
                         .font(Font.system(size: 50))
                         .padding()
                         .offset(x: start ? 30 : 0)
-                        .frame(width: .infinity, height: .infinity)
-                        .background(greenBackground)
-                        .foregroundColor(Color.green)
+                        .foregroundColor(greenBackground)
                 } else {
                     Image(systemName: "xmark.circle.fill")
                         .font(Font.system(size: 50))
                         .padding()
                         .offset(x: start ? 30 : 0)
-                        .background(redBackground)
                         .foregroundColor(Color.red)
                 }
             }

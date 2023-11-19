@@ -18,7 +18,6 @@
 		964C697D2B07AFCC00CD457E /* SoundAndPositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C697C2B07AFCC00CD457E /* SoundAndPositionView.swift */; };
 		964C697F2B08EB2E00CD457E /* GameInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C697E2B08EB2E00CD457E /* GameInfoView.swift */; };
 		964C69812B08F8B300CD457E /* StartIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C69802B08F8B300CD457E /* StartIconView.swift */; };
-		964C69852B093E8900CD457E /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C69842B093E8900CD457E /* test.swift */; };
 		EBA7C6D42ACB0C1800585AF6 /* nback.c in Sources */ = {isa = PBXBuildFile; fileRef = EBA7C6D32ACB0C1800585AF6 /* nback.c */; };
 		EBA7C6DC2ACC0CD300585AF6 /* SoundIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7C6DB2ACC0CD300585AF6 /* SoundIconView.swift */; };
 		EBA7C6DE2ACC0EB700585AF6 /* ImageIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA7C6DD2ACC0EB700585AF6 /* ImageIconView.swift */; };
@@ -43,7 +42,6 @@
 		964C697C2B07AFCC00CD457E /* SoundAndPositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundAndPositionView.swift; sourceTree = "<group>"; };
 		964C697E2B08EB2E00CD457E /* GameInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoView.swift; sourceTree = "<group>"; };
 		964C69802B08F8B300CD457E /* StartIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartIconView.swift; sourceTree = "<group>"; };
-		964C69842B093E8900CD457E /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		EBA7C6D12ACB0C0C00585AF6 /* nback.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nback.h; sourceTree = "<group>"; };
 		EBA7C6D22ACB0C1800585AF6 /* N-Back-SwiftUI-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "N-Back-SwiftUI-Bridging-Header.h"; sourceTree = "<group>"; };
 		EBA7C6D32ACB0C1800585AF6 /* nback.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = nback.c; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 				964C697C2B07AFCC00CD457E /* SoundAndPositionView.swift */,
 				964C697E2B08EB2E00CD457E /* GameInfoView.swift */,
 				964C69802B08F8B300CD457E /* StartIconView.swift */,
-				964C69842B093E8900CD457E /* test.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,7 +222,6 @@
 				EBD8C0F82AB9974600DC99B8 /* N_Back_SwiftUIVM.swift in Sources */,
 				964C696A2B04D11700CD457E /* HomeScreenView.swift in Sources */,
 				EBD8C0EA2AB9909200DC99B8 /* N_Back_SwiftUIApp.swift in Sources */,
-				964C69852B093E8900CD457E /* test.swift in Sources */,
 				964C69792B079E1F00CD457E /* SoundGameView.swift in Sources */,
 				964C69682B04CFF100CD457E /* GridView.swift in Sources */,
 				964C696C2B0502CD00CD457E /* GameView.swift in Sources */,

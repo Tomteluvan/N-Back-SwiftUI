@@ -14,6 +14,7 @@ struct SoundAndPositionView: View {
             GridView()
             SoundGameView() // i mean... this is empty in terms of visual stuff
         }
+        .padding()
     }
 }
 

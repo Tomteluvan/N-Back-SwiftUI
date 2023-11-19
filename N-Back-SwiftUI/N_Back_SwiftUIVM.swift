@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import SwiftUI
 
 class N_Back_SwiftUIVM : ObservableObject  {
     let synthesizer = AVSpeechSynthesizer()
@@ -14,22 +15,33 @@ class N_Back_SwiftUIVM : ObservableObject  {
     var rectangleTimer: Timer?
     var soundtimer: Timer?
     
-    @Published var highScore : Int
+    @AppStorage("highScore") var highScore : Int = 0
+    //@Published var highScore : Int
     @Published var currentScore : Int
     @Published var soundImage : Int
     @Published var positionImage : Int
-    @Published var gridSize : Int
-    @Published var nBackLevel : Int
+    @AppStorage("gridSize") var gridSize : Int = 3
+    //@Published var gridSize : Int
+    @AppStorage("nBackLevel") var nBackLevel : Int = 1
     @Published var rectangles: [aRectangle] = []
     @Published var positionIndex : Int
     @Published var soundIndex: Int
     @Published var canGuessPosition: Bool
     @Published var canGuessSound: Bool
-    @Published var timeBetween: Double
-    @Published var numberOfEvents: Int
+    @AppStorage("timeBetween") var timeBetween : Double = 2
+    //@Published var timeBetween: Double
+    @AppStorage("numberOfEvents") var numberOfEvents : Int = 25
+    //@Published var numberOfEvents: Int
     
     init(){
-        theModel = N_BackSwiftUIModel(count: 0, gridSize: 5, nBackLevel: 1, highScore: 0, numberOfEvents: 25)
+        //hot-fix, sorry, values are 0 when first EVER launch of app, because of how we init the model those 0 values are used because the 0 is not updated at the start
+        var savedGridSize = UserDefaults.standard.integer(forKey: "gridSize")
+        var savedNBackLevel = UserDefaults.standard.integer(forKey: "nBackLevel")
+        var savedHighScore = UserDefaults.standard.integer(forKey: "highScore")
+        var savedNumberOfEvents = UserDefaults.standard.integer(forKey: "numberOfEvents")
+        if savedGridSize == 0 { savedGridSize = 3 } ; if savedNBackLevel == 0 { savedNBackLevel = 1 } ; if savedNumberOfEvents == 0 { savedNumberOfEvents = 25 }
+        
+        theModel = N_BackSwiftUIModel(count: 0, gridSize: savedGridSize, nBackLevel: savedNBackLevel, highScore: savedHighScore, numberOfEvents: savedNumberOfEvents)
         currentScore = theModel.getCount()
         highScore = theModel.getHighScore()
         gridSize = theModel.getGridSize()
