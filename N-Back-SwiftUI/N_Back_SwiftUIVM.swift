@@ -15,23 +15,20 @@ class N_Back_SwiftUIVM : ObservableObject  {
     var rectangleTimer: Timer?
     var soundtimer: Timer?
     
-    @AppStorage("highScore") var highScore : Int = 0
-    //@Published var highScore : Int
     @Published var currentScore : Int
     @Published var soundImage : Int
     @Published var positionImage : Int
-    @AppStorage("gridSize") var gridSize : Int = 3
-    //@Published var gridSize : Int
-    @AppStorage("nBackLevel") var nBackLevel : Int = 1
     @Published var rectangles: [aRectangle] = []
     @Published var positionIndex : Int
     @Published var soundIndex: Int
     @Published var canGuessPosition: Bool
     @Published var canGuessSound: Bool
+    
+    @AppStorage("highScore") var highScore : Int = 0
+    @AppStorage("gridSize") var gridSize : Int = 3
+    @AppStorage("nBackLevel") var nBackLevel : Int = 1
     @AppStorage("timeBetween") var timeBetween : Double = 2
-    //@Published var timeBetween: Double
     @AppStorage("numberOfEvents") var numberOfEvents : Int = 25
-    //@Published var numberOfEvents: Int
     
     init(){
         //hot-fix, sorry, values are 0 when first EVER launch of app, because of how we init the model those 0 values are used because the 0 is not updated at the start
