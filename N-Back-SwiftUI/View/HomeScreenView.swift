@@ -17,6 +17,7 @@ struct HomeScreenView: View {
                 Color(red: 134/255, green: 185/255, blue: 237/255).edgesIgnoringSafeArea(.all)
                 VStack {
                     Text("Click buttons to change values").font(.title).foregroundStyle(Color.white)
+                    Text("Highscore: \(theViewModel.highScore)").foregroundStyle(Color.white)
                     Button {
                         theViewModel.changeGridSize()
                     } label : {

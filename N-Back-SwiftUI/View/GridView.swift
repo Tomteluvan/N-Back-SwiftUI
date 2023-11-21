@@ -28,6 +28,7 @@ struct GridView: View {
 struct GridView_Preview: PreviewProvider {
     static var previews: some View {
         let theViewModel = N_Back_SwiftUIVM()
-        GridView().environmentObject(theViewModel)
+        GridView()
+            .environmentObject(theViewModel)
     }
 }
