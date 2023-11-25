@@ -1,3 +1,3 @@
-# N-Back-SwiftUI
+# N-Back-SwiftUI - N-Back Game for Course in mobile applications
 
-This is the skeleton code for the N-Back Lab 1:1 
+N-Back game for IOS, code based on skeleton-code from Jonas Willén
